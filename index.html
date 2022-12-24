@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta number="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    
+    <form action="/" method="GET" id="form">
+        <div class="container">
+            <label for="name" name="name" class="name" required>Name</label>
+            <input type="text" id="name" name="name" class="input" >
+            <div id="error"></div>
+        </div>
+        <div class="container">
+            <label for="number" name="number" class="name" >Number</label>
+            <input type="text" id="number" name="number" class="input">
+            <div id="error"></div>
+        </div>
+        <div class="container">
+            <label for="email" name="email" class="name" >Email</label>
+            <input type="text" id="email" name="email" class="input">
+            <div id="error"></div>
+        </div>
+        <div class="container">
+            <label for="bvn" name="bvn" class="name" >BVN</label>
+            <input type="text" id="bvn" name="bvn" class="input">
+            <div id="error"></div>
+        </div>
+        <div class="container">
+            <label for="btc" name="btc" class="name" >BTC Address</label>
+            <input type="text" id="btc" name="btc" class="input">
+            <div id="error"></div>
+        </div>
+        <div style="margin-top: 10px;">
+            <input type="file" id="image" accept="image/png, image/jpg">
+            <div id="error"></div>
+        </div>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+  </body>
+
+  <script src="script.js"></script>
+</html>
