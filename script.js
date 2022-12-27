@@ -33,9 +33,8 @@ const setSuccess = element => {
 
 }
 
-const validEmail = email => {
-    const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-}
+
+    
 
 const validateInputs = () => {
     const usernameValue = username.value.trim()
@@ -45,6 +44,7 @@ const validateInputs = () => {
     const numberValue = number.value.trim()
     const  files = inputImage.files
 
+    
     if(files.length > 0){
         if(files[0].size > 10 * 1024){
            setError(inputImage,'file is too large')
@@ -64,25 +64,29 @@ const validateInputs = () => {
         setSuccess(number)
     }
 
+    function hasNumbers(t)
+{var regex = /\d/g;
+return regex.test(t);}    
+
     if (usernameValue === '') {
         setError(username, 'Username is required')
-    } else if(!isNaN(usernameValue)){
+
+    } else if(hasNumbers(usernameValue) === true){
         setError(username, 'Enter a valid name')
     } else{
         setSuccess(username)
     }
 
-    if(emailValue === ''){
-        setError(email, 'Email is required')
-    } else if(!validEmail(emailValue)) {
-        setError( email, 'Provide a valid email')
-    } else{
+    var pattern = /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
+    if(pattern.test(emailValue)){
         setSuccess(email)
-    }
+    } else {
+        setError(email, 'Enter valid email')
+    } 
 
     if(bvnValue === ''){
         setError(bvn, 'Bvn required')
-    } else if(bvnValue.length !== 11 ) {
+    } else if(bvnValue.length !== 11 || isNaN(bvnValue)) {
         setError(bvn, 'Provide a valid BVN')
     } else{
         setSuccess(bvn)
